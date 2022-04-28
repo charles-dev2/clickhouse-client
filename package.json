@@ -1,0 +1,87 @@
+{
+  "name": "@depyronick/clickhouse-client",
+  "version": "1.0.13",
+  "description": "ClickHouse Client for NodeJS.",
+  "author": "depyronick",
+  "private": false,
+  "license": "MIT",
+  "repository": "https://github.com/depyronick/clickhouse-client",
+  "keywords": [
+    "clickhouse",
+    "nodejs",
+    "typescript",
+    "nodejs-clickhouse",
+    "node-clickhouse",
+    "clickhouse-client"
+  ],
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "postbuild": "cp package.json README.md dist/",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/index",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "publish:npm": "npm run build && cd ./dist && npm publish --access public"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.5.5",
+    "stream-json": "^1.7.4"
+  },
+  "peerDependencies": {
+    "reflect-metadata": "^0.1.13",
+    "axios": "^0.26.1",
+    "rxjs": "^7.5.5"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^8.2.5",
+    "@nestjs/schematics": "^8.0.10",
+    "@nestjs/testing": "^8.4.4",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.25",
+    "@types/stream-json": "^1.7.2",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
+    "prettier": "^2.6.2",
+    "source-map-support": "^0.5.21",
+    "supertest": "^6.2.2",
+    "ts-jest": "^27.1.4",
+    "ts-loader": "^9.2.8",
+    "ts-node": "^10.7.0",
+    "tsconfig-paths": "^3.14.1",
+    "typescript": "^4.6.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
